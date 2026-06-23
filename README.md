@@ -17,26 +17,39 @@ This project performs a complete  Whole Genome Sequencing (WGS) variant calling 
 ---
 ## 🧬 Workflow
 ```mermaid
-graph TD
-    %% Define Pipeline Nodes
-    A([Raw FASTQ Reads]) --> B[FastQC Quality Control]
-    B --> C[BWA-MEM Alignment]
-    C --> D[SAMtools Processing & Indexing]
-    D --> E[GATK HaplotypeCaller]
-    E --> F[VariantFiltration]
-    F --> G[BCFTools VCF Manipulation]
-    G --> H[Ensembl VEP Annotation]
-    H --> I[R & RStudio Analysis]
-    I --> J[ggplot2 Plot Generation]
-    J --> K([Visualization & reporting])
+flowchart LR
 
-    %% Professional Color Theme Styling
-    style A fill:#e1f5fe,stroke:#03a9f4,stroke-width:2px,rx:8px,ry:8px
-    style K fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,rx:8px,ry:8px
-    style E fill:#fff3e0,stroke:#ff9800,stroke-width:1px
-    style F fill:#fff3e0,stroke:#ff9800,stroke-width:1px
-    style I fill:#f3e5f5,stroke:#9c27b0,stroke-width:1px
-    style J fill:#f3e5f5,stroke:#9c27b0,stroke-width:1px
+A[📥 Raw FASTQ Files] --> B[🔍 FastQC Quality Control]
+
+B --> C[✂️ Read Processing]
+
+C --> D[🧬 BWA-MEM Alignment]
+
+D --> E[📄 SAM to BAM Conversion]
+
+E --> F[🔃 Sorting & Indexing]
+
+F --> G[🏷️ Add Read Groups<br>Picard]
+
+G --> H[🧹 Mark Duplicates<br>Picard]
+
+H --> I[🧬 GATK HaplotypeCaller]
+
+I --> J[⚙️ Variant Filtering<br>bcftools]
+
+J --> K[📝 VEP Annotation<br>GRCh38]
+
+K --> L[📊 R Analysis]
+
+L --> M[📈 ggplot2 Visualization]
+
+M --> N[📑 Final Report]
+
+style A fill:#dbeafe,stroke:#2563eb,stroke-width:2px
+style I fill:#fef3c7,stroke:#d97706,stroke-width:2px
+style K fill:#dcfce7,stroke:#16a34a,stroke-width:2px
+style M fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
+style N fill:#fee2e2,stroke:#dc2626,stroke-width:2px
 ```
 ---
 ### 🛠️ Tools and Software
@@ -56,7 +69,6 @@ graph TD
 | ggplot2 | Plotting |
 ---
 ## 📁 Repository Structure
-
 ```text
 WGS-Variant-Calling-Pipeline/
 ├── scripts/                
@@ -86,23 +98,27 @@ Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered v
 
 ### Variant Impact Distribution
 
-![Impact Distribution](figures/01_impact_distribution.png)
+<img src="figures/01_impact_distribution.png" width="600"/>
+
 
 ### Variant Class Distribution
 
-![Variant Class Distribution](figures/02_variant_class_distribution.png)
+<img src="figures/02_variant_class_distribution.png" width="600"/>
+
 
 ### Top Variant Consequences
 
-![Top Consequences](figures/03_top_consequences.png)
+<img src="figures/03_top_consequences.png" width="600"/>
+
 
 ### Impact vs Variant Class
 
-![Impact vs Class](figures/04_impact_vs_class.png)
+<img src="figures/04_impact_vs_class.png" width="600"/>
 
-### Top Genes with Variants
 
-![Top Genes](figures/05_top_genes.png)
+### Top Genes
+
+<img src="figures/05_top_genes.png" width="600"/>
 ---
 ## 🧬 Key Skills Demonstrated
 
