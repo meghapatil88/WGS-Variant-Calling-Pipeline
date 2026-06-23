@@ -1,7 +1,8 @@
 # 🧬 Human Low-Coverage WGS Variant Calling (SRR062634)
 ## 📌 Overview
 
-This project performs a complete  Whole Genome Sequencing (WGS) variant calling and functional annotation analysis using the low-coverage human dataset SRR062634 from the 1000 Genomes Project. The workflow includes raw data retrieval, reference genome alignment, duplicate marking, variant calling, variant effect prediction, and variant visualization.
+This project performs a complete 'Whole Genome Sequencing' analysis pipeline for variant calling and functional annotation using the low-coverage human dataset `SRR062634` from the 1000 Genomes Project. The workflow includes raw data retrieval, reference genome alignment, duplicate marking, variant calling, variant effect prediction, and variant burden visualization.
+
 ---
 ## 📂 Dataset Information
 
@@ -16,40 +17,45 @@ This project performs a complete  Whole Genome Sequencing (WGS) variant calling 
 * **Library Layout**: PAIRED
 ---
 ## 🧬 Workflow
+
 ```mermaid
-flowchart LR
+flowchart TD
 
-A[📥 Raw FASTQ Files] --> B[🔍 FastQC Quality Control]
+A[FASTQ Raw Reads] --> B[FastQC Quality Control]
 
-B --> C[✂️ Read Processing]
+B --> C[BWA-MEM Alignment]
 
-C --> D[🧬 BWA-MEM Alignment]
+C --> D[SAMtools SAM to BAM]
 
-D --> E[📄 SAM to BAM Conversion]
+D --> E[Sorting and Indexing BAM]
 
-E --> F[🔃 Sorting & Indexing]
+E --> F[Picard Add Read Groups]
 
-F --> G[🏷️ Add Read Groups<br>Picard]
+F --> G[Picard Mark Duplicates]
 
-G --> H[🧹 Mark Duplicates<br>Picard]
+G --> H[GATK HaplotypeCaller]
 
-H --> I[🧬 GATK HaplotypeCaller]
+H --> I[bcftools Variant Filtering]
 
-I --> J[⚙️ Variant Filtering<br>bcftools]
+I --> J[Ensembl VEP Annotation]
 
-J --> K[📝 VEP Annotation<br>GRCh38]
+J --> K[R Studio Analysis]
 
-K --> L[📊 R Analysis]
+K --> L[Variant Statistics]
 
-L --> M[📈 ggplot2 Visualization]
+L --> M[Visualization Results]
 
-M --> N[📑 Final Report]
 
-style A fill:#dbeafe,stroke:#2563eb,stroke-width:2px
-style I fill:#fef3c7,stroke:#d97706,stroke-width:2px
-style K fill:#dcfce7,stroke:#16a34a,stroke-width:2px
-style M fill:#f3e8ff,stroke:#9333ea,stroke-width:2px
-style N fill:#fee2e2,stroke:#dc2626,stroke-width:2px
+classDef start fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
+classDef process fill:#dcfce7,stroke:#16a34a,stroke-width:2px;
+classDef analysis fill:#fef3c7,stroke:#d97706,stroke-width:2px;
+classDef result fill:#f3e8ff,stroke:#9333ea,stroke-width:2px;
+
+
+class A start
+class B,C,D,E,F,G process
+class H,I,J analysis
+class K,L,M result
 ```
 ---
 ### 🛠️ Tools and Software
@@ -96,30 +102,32 @@ Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered v
 
 ## 📊 Visualization Results
 
+
 ### Variant Impact Distribution
 
-<img src="figures/01_impact_distribution.png" width="600"/>
+<img src="./figures/01_impact_distribution.png" width="700">
 
 
 ### Variant Class Distribution
 
-<img src="figures/02_variant_class_distribution.png" width="600"/>
+<img src="./figures/02_variant_class_distribution.png" width="700">
 
 
 ### Top Variant Consequences
 
-<img src="figures/03_top_consequences.png" width="600"/>
+<img src="./figures/03_top_consequences.png" width="700">
 
 
 ### Impact vs Variant Class
 
-<img src="figures/04_impact_vs_class.png" width="600"/>
+<img src="./figures/04_impact_vs_class.png" width="700">
 
 
 ### Top Genes
 
-<img src="figures/05_top_genes.png" width="600"/>
+<img src="./figures/05_top_genes.png" width="700">
 ---
+
 ## 🧬 Key Skills Demonstrated
 
 - NGS data analysis
