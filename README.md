@@ -97,32 +97,25 @@ Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered v
 
 ## 📊 Visualizations
 
-### Figure 1: Variant Impact Classification
-![Impact Distribution](figures/01_impact_distribution.png)
+### Variant Impact Distribution
 
-**Key Insight:** 99.4% of variants are benign MODIFIER class; only 15 (0.025%) are HIGH-impact variants.
+<img src="figures/01_impact_distribution.png" width="600">
 
----
+### Variant Class Distribution
 
-### Figure 2: Variant Type Distribution
-![Variant Class Distribution](figures/02_variant_class_distribution.png)
+<img src="figures/02_variant_class_distribution.png" width="600">
 
-**Key Insight:** SNVs dominate (90.1%), with proper representation of indels (7.1%).
+### Top Variant Consequences
 
----
+<img src="figures/03_top_consequences.png" width="600">
 
-### Figure 3: Top 10 Variant Consequences
-![Top Consequences](figures/03_top_consequences.png)
+### Impact vs Variant Class
 
-**Key Insight:** ~81% are non-coding variants (introns, intergenic).
+<img src="figures/04_impact_vs_class.png" width="600">
 
----
+### Top Genes
 
-### Figure 4: Impact Level by Variant Type
-![Impact vs Class](figures/04_impact_vs_class.png)
-
-**Key Insight:** Proper stratification across impact levels shows no systematic biases.
-
+<img src="figures/05_top_genes.png" width="600">
 ---
 
 ### Figure 5: Top 20 Most Affected Genes
