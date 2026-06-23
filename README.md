@@ -22,7 +22,7 @@ This project performs a complete Whole Genome Sequencing analysis pipeline for v
 ## 🔬 Workflow
 
 ```
-Raw FASTQ Files
+Raw FASTQ Files 
      ↓
 FastQC Quality Control
      ↓
