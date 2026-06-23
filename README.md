@@ -4,6 +4,7 @@
 This project performs a complete 'Whole Genome Sequencing' analysis pipeline for variant calling and functional annotation using the low-coverage human dataset `SRR062634` from the 1000 Genomes Project. The workflow includes raw data retrieval, reference genome alignment, duplicate marking, variant calling, variant effect prediction, and variant burden visualization.
 
 ---
+
 ## 📂 Dataset Information
 
 * **Dataset**: SRR062634 (Experiment: SRX025016)
@@ -15,49 +16,38 @@ This project performs a complete 'Whole Genome Sequencing' analysis pipeline for
 * **Sequencing Platform**: Illumina Genome Analyzer II
 * **Library Strategy**: WGS (Whole Genome Sequencing)
 * **Library Layout**: PAIRED
+
 ---
-## 🧬 Workflow
 
-```mermaid
-flowchart TD
+## 🔬 Workflow
 
-A[FASTQ Raw Reads] --> B[FastQC Quality Control]
-
-B --> C[BWA-MEM Alignment]
-
-C --> D[SAMtools SAM to BAM]
-
-D --> E[Sorting and Indexing BAM]
-
-E --> F[Picard Add Read Groups]
-
-F --> G[Picard Mark Duplicates]
-
-G --> H[GATK HaplotypeCaller]
-
-H --> I[bcftools Variant Filtering]
-
-I --> J[Ensembl VEP Annotation]
-
-J --> K[R Studio Analysis]
-
-K --> L[Variant Statistics]
-
-L --> M[Visualization Results]
-
-
-classDef start fill:#dbeafe,stroke:#2563eb,stroke-width:2px;
-classDef process fill:#dcfce7,stroke:#16a34a,stroke-width:2px;
-classDef analysis fill:#fef3c7,stroke:#d97706,stroke-width:2px;
-classDef result fill:#f3e8ff,stroke:#9333ea,stroke-width:2px;
-
-
-class A start
-class B,C,D,E,F,G process
-class H,I,J analysis
-class K,L,M result
+```
+Raw FASTQ Files
+     ↓
+FastQC Quality Control
+     ↓
+Trimmomatic Read Trimming
+     ↓
+BWA-MEM Alignment
+     ↓
+SAMtools Sorting & Indexing
+     ↓
+Picard AddOrReplaceReadGroups
+     ↓
+Picard MarkDuplicates
+     ↓
+FreeBayes Variant Calling
+     ↓
+bcftools Variant Filtering
+     ↓
+VEP Annotation
+     ↓
+R Analysis & Visualization
+     ↓
+Final Results (VCF + CSV + Plots)
 ```
 ---
+
 ### 🛠️ Tools and Software
 | Tool | Purpose |
 |---|---|
@@ -73,7 +63,9 @@ class K,L,M result
 | Ensembl VEP | Variant annotation |
 | R | Statistical analysis |
 | ggplot2 | Plotting |
+
 ---
+
 ## 📁 Repository Structure
 ```text
 WGS-Variant-Calling-Pipeline/
@@ -96,36 +88,48 @@ WGS-Variant-Calling-Pipeline/
 └── variant_analysis_report.txt  
 ```
 ---
+
 ## 🧬 Genomic Variant Analysis
 
 Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered via **VariantFiltration** to isolate high-confidence germline variants across the genome.
 
-## 📊 Visualization Results
+---
 
+## 📊 Visualizations
 
-### Variant Impact Distribution
+### Figure 1: Variant Impact Classification
+![Impact Distribution](figures/01_impact_distribution.png)
 
-<img src="./figures/01_impact_distribution.png" width="700">
+**Key Insight:** 99.4% of variants are benign MODIFIER class; only 15 (0.025%) are HIGH-impact variants.
 
+---
 
-### Variant Class Distribution
+### Figure 2: Variant Type Distribution
+![Variant Class Distribution](figures/02_variant_class_distribution.png)
 
-<img src="./figures/02_variant_class_distribution.png" width="700">
+**Key Insight:** SNVs dominate (90.1%), with proper representation of indels (7.1%).
 
+---
 
-### Top Variant Consequences
+### Figure 3: Top 10 Variant Consequences
+![Top Consequences](figures/03_top_consequences.png)
 
-<img src="./figures/03_top_consequences.png" width="700">
+**Key Insight:** ~81% are non-coding variants (introns, intergenic).
 
+---
 
-### Impact vs Variant Class
+### Figure 4: Impact Level by Variant Type
+![Impact vs Class](figures/04_impact_vs_class.png)
 
-<img src="./figures/04_impact_vs_class.png" width="700">
+**Key Insight:** Proper stratification across impact levels shows no systematic biases.
 
+---
 
-### Top Genes
+### Figure 5: Top 20 Most Affected Genes
+![Top Genes](figures/05_top_genes.png)
 
-<img src="./figures/05_top_genes.png" width="700">
+**Key Insight:** Genes with highest variant burden are typically large genes.
+
 ---
 
 ## 🧬 Key Skills Demonstrated
