@@ -1,7 +1,7 @@
 # 🧬 Human Low-Coverage WGS Variant Calling (SRR062634)
 ## 📌 Overview
 
-This project performs a complete 'Whole Genome Sequencing' analysis pipeline for variant calling and functional annotation using the low-coverage human dataset `SRR062634` from the 1000 Genomes Project. The workflow includes raw data retrieval, reference genome alignment, duplicate marking, variant calling, variant effect prediction, and variant burden visualization.
+This project performs a complete Whole Genome Sequencing analysis pipeline for variant calling and functional annotation using the low-coverage human dataset `SRR062634` from the 1000 Genomes Project. The workflow includes raw data retrieval, reference genome alignment, duplicate marking, variant calling, variant effect prediction, and variant burden visualization.
 
 ---
 
