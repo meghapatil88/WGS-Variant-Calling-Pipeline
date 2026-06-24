@@ -67,25 +67,22 @@ Final Results (VCF + CSV + Plots)
 ---
 
 ## 📁 Repository Structure
-```text
-WGS-Variant-Calling-Pipeline/
-├── scripts/                
-├── R_scripts/              
-├── data/                   
-├── qc/                     
-├── qc_trimmed/             
-├── alignment/              
-├── results/                
-├── annotation/             
-├── figures/                
-│   ├── 01_impact_distribution.png
-│   ├── 02_variant_class_distribution.png
-│   ├── 03_top_consequences.png
-│   ├── 04_impact_vs_class.png
-│   └── 05_top_genes.png
-├── report/                 
-├── README.md               
-└── variant_analysis_report.txt  
+## 📁 Repository Structure
+
+```
+WES-Variant-Calling-Pipeline/
+├── data/                          
+├── reference/                     
+├── qc/                           
+├── alignment/                    
+├── variants/                     
+├── annotation/                   
+├── results/                      
+├── figures/                      
+├── scripts/                      
+├── R_scripts/                    
+├── README.md                     
+└── variant_analysis_report.txt   
 ```
 ---
 
