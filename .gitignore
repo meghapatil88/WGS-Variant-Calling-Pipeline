@@ -1,0 +1,22 @@
+# Large FASTQ files (don't upload)
+*.fastq
+*.fq
+*.fastq.gz
+*.fq.gz
+
+# Reference genome (don't upload)
+hg38.fa
+hg38.fa.fai
+hg38*.bt2
+
+# Temporary files
+*.tmp
+*.log
+*.swp
+*~
+.DS_Store
+.Rhistory
+
+# JAR files
+*.jar
+EOF
