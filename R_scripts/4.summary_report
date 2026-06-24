@@ -1,0 +1,28 @@
+# Create summary report
+summary_report <- paste0(
+  "=== VARIANT CALLING ANALYSIS REPORT ===\n\n",
+  "Sample: SRR062634 (HG00096)\n",
+  "Total Variants: ", nrow(variants), "\n",
+  "Total Genes Affected: ", length(unique(variants$SYMBOL[variants$SYMBOL != "-"])), "\n\n",
+  
+  "IMPACT CLASSIFICATION:\n",
+  "  HIGH impact: ", table(variants$IMPACT)["HIGH"], "\n",
+  "  MODERATE impact: ", table(variants$IMPACT)["MODERATE"], "\n",
+  "  LOW impact: ", table(variants$IMPACT)["LOW"], "\n",
+  "  MODIFIER: ", table(variants$IMPACT)["MODIFIER"], "\n\n",
+  
+  "VARIANT TYPES:\n",
+  "  SNVs: ", table(variants$VARIANT_CLASS)["SNV"], "\n",
+  "  Indels: ", table(variants$VARIANT_CLASS)["indel"], "\n",
+  "  Substitutions: ", table(variants$VARIANT_CLASS)["substitution"], "\n\n",
+  
+  "TOP CONSEQUENCES:\n",
+  "  Intron variants: ", table(variants$Consequence)["intron_variant"], "\n",
+  "  Intergenic variants: ", table(variants$Consequence)["intergenic_variant"], "\n",
+  "  Missense variants: ", table(variants$Consequence)["missense_variant"], "\n"
+)
+
+cat(summary_report)
+
+# Save report
+writeLines(summary_report, "variant_analysis_report.txt")

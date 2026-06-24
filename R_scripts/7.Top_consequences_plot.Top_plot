@@ -1,0 +1,16 @@
+# Get top 10 consequences
+top_consequences <- head(sort(table(variants$Consequence), decreasing = TRUE), 10)
+cons_data <- data.frame(Consequence = names(top_consequences), Count = as.numeric(top_consequences))
+
+p3 <- ggplot(cons_data, aes(x = reorder(Consequence, Count), y = Count)) +
+  geom_bar(stat = "identity", fill = "#06A77D", color = "black", alpha = 0.8) +
+  geom_text(aes(label = Count), hjust = -0.3, fontface = "bold") +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Top 10 Variant Consequences",
+       x = "Consequence", y = "Count") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+        axis.text.y = element_text(size = 10))
+
+print(p3)
+ggsave("03_top_consequences.png", p3, width = 10, height = 6, dpi = 300)

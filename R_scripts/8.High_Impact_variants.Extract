@@ -1,0 +1,11 @@
+# Get all HIGH impact variants
+high_impact <- variants %>%
+  filter(IMPACT == "HIGH") %>%
+  select(Location, Allele, Consequence, SYMBOL, IMPACT, AF)
+
+cat("=== HIGH IMPACT VARIANTS ===\n")
+print(high_impact)
+
+# Save to CSV
+write.csv(high_impact, "high_impact_variants.csv", row.names = FALSE)
+cat("\nHIGH impact variants saved to: high_impact_variants.csv\n")

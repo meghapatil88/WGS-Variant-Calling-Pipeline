@@ -1,0 +1,18 @@
+# Create IMPACT plot
+impact_data <- as.data.frame(table(variants$IMPACT))
+colnames(impact_data) <- c("IMPACT", "Count")
+
+p1 <- ggplot(impact_data, aes(x = reorder(IMPACT, -Count), y = Count, fill = IMPACT)) +
+  geom_bar(stat = "identity", color = "black", alpha = 0.8) +
+  geom_text(aes(label = Count), vjust = -0.5, fontface = "bold", size = 5) +
+  scale_fill_manual(values = c("HIGH" = "#D62828", "MODERATE" = "#F77F00", 
+                               "LOW" = "#FCBF49", "MODIFIER" = "#06A77D")) +
+  theme_minimal() +
+  labs(title = "Variant Impact Classification",
+       x = "Impact Level", y = "Number of Variants") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14),
+        legend.position = "none",
+        axis.text.x = element_text(size = 12))
+
+print(p1)
+ggsave("01_impact_distribution.png", p1, width = 8, height = 5, dpi = 300)

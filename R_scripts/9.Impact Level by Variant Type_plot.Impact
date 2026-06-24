@@ -1,0 +1,14 @@
+# Create cross-tabulation
+impact_class <- as.data.frame(table(variants$IMPACT, variants$VARIANT_CLASS))
+colnames(impact_class) <- c("IMPACT", "Class", "Count")
+
+p4 <- ggplot(impact_class, aes(x = IMPACT, y = Count, fill = Class)) +
+  geom_bar(stat = "identity", position = "dodge", color = "black", alpha = 0.8) +
+  scale_fill_manual(values = c("SNV" = "#2E86AB", "indel" = "#A23B72", "substitution" = "#F18F01")) +
+  theme_minimal() +
+  labs(title = "Impact Level by Variant Type",
+       x = "Impact Level", y = "Number of Variants", fill = "Variant Type") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))
+
+print(p4)
+ggsave("04_impact_vs_class.png", p4, width = 8, height = 5, dpi = 300)

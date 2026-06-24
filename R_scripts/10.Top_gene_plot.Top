@@ -1,0 +1,19 @@
+# Get genes with most variants
+top_genes <- variants %>%
+  filter(SYMBOL != "-") %>%
+  group_by(SYMBOL) %>%
+  summarise(Count = n(), HighImpact = sum(IMPACT == "HIGH")) %>%
+  arrange(desc(Count)) %>%
+  head(20)
+
+p5 <- ggplot(top_genes, aes(x = reorder(SYMBOL, Count), y = Count)) +
+  geom_bar(stat = "identity", fill = "#F77F00", color = "black", alpha = 0.8) +
+  geom_text(aes(label = Count), hjust = -0.3, fontface = "bold", size = 4) +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Top 20 Most Affected Genes",
+       x = "Gene", y = "Number of Variants") +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14))
+
+print(p5)
+ggsave("05_top_genes.png", p5, width = 10, height = 7, dpi = 300)
