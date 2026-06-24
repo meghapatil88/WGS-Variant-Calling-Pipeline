@@ -1,0 +1,22 @@
+=== VARIANT CALLING ANALYSIS REPORT ===
+
+Sample: SRR062634 (HG00096)
+Total Variants: 60585
+Total Genes Affected: 4169
+
+IMPACT CLASSIFICATION:
+  HIGH impact: 15
+  MODERATE impact: 119
+  LOW impact: 217
+  MODIFIER: 60234
+
+VARIANT TYPES:
+  SNVs: 54626
+  Indels: 4302
+  Substitutions: 1657
+
+TOP CONSEQUENCES:
+  Intron variants: 22268
+  Intergenic variants: 6798
+  Missense variants: 102
+
