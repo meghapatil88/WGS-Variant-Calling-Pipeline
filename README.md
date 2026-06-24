@@ -67,7 +67,6 @@ Final Results (VCF + CSV + Plots)
 ---
 
 ## 📁 Repository Structure
-## 📁 Repository Structure
 
 ```
 WES-Variant-Calling-Pipeline/
