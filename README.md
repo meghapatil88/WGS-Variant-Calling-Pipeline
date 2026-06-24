@@ -97,31 +97,34 @@ Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered v
 
 ## 📊 Visualizations
 
-### Variant Impact Distribution
 
-<img src="figures/01_impact_distribution.png" width="600">
+### Variant Impact Classification
 
-### Variant Class Distribution
+<img width="2400" height="1500" alt="Image" src="https://github.com/user-attachments/assets/02ea6bd5-f1c8-4e83-913c-d5ac25f51d22" />
 
-<img src="figures/02_variant_class_distribution.png" width="600">
+---
+
+### Variant Type Distribution
+
+<img width="2400" height="1500" alt="Image" src="https://github.com/user-attachments/assets/5e9db937-d36e-4cf7-8815-af6c79f4b449" />
+
+---
 
 ### Top Variant Consequences
 
-<img src="figures/03_top_consequences.png" width="600">
+<img width="3000" height="1800" alt="Image" src="https://github.com/user-attachments/assets/4ba5ce3a-a0b6-40c4-acc5-b1da78d3965c" />
 
-### Impact vs Variant Class
+---
 
-<img src="figures/04_impact_vs_class.png" width="600">
+### Impact Level by Variant Type
+
+<img width="2400" height="1500" alt="Image" src="https://github.com/user-attachments/assets/e5c65393-b9a5-4abf-9e94-87f3b53c477f" />
+
+---
 
 ### Top Genes
 
-<img src="figures/05_top_genes.png" width="600">
----
-
-### Figure 5: Top 20 Most Affected Genes
-![Top Genes](figures/05_top_genes.png)
-
-**Key Insight:** Genes with highest variant burden are typically large genes.
+<img width="3000" height="2100" alt="Image" src="https://github.com/user-attachments/assets/4dc2c293-9b2c-4dee-87dc-a99c63a8b2c6" />
 
 ---
 
@@ -134,7 +137,9 @@ Variant calling was performed using **GATK HaplotypeCaller** and hard-filtered v
 - Variant annotation
 - Linux command line
 - R-based data visualization
+  
 ---
+
 ## 👩‍💻 Author
 
 Megha Patil  
