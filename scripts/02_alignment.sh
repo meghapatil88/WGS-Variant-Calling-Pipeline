@@ -2,11 +2,11 @@
 
 echo "Starting Alignment started"
 
-bwa mem \
-reference/hg38.fa \
-data/SRR062634_1.fastq \
-data/SRR062634_2.fastq \
-> alignment/sample.sam
+bowtie2 \
+-x reference/hg38 \
+-1 data/SRR062634_1.fastq \
+-2 data/SRR062634_2.fastq \
+-S alignment/sample.sam
 
 echo "SAM to BAM conversion"
 
