@@ -28,7 +28,7 @@ FastQC Quality Control
      ↓
 Trimmomatic Read Trimming
      ↓
-BWA-MEM Alignment
+Bowtie2 Alignment
      ↓
 SAMtools Sorting & Indexing
      ↓
@@ -56,7 +56,7 @@ Final Results (VCF + CSV + Plots)
 | sra-tools | Fastq retrieval |
 | FastQC | Quality control |
 | fastp | Read trimming |
-| BWA | Sequence alignment |
+| Bowtie2 | Sequence alignment |
 | SAMtools | BAM processing |
 | Picard | Duplicate marking |
 | GATK4 | Variant calling |
