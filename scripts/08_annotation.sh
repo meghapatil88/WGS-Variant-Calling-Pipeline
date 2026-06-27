@@ -5,6 +5,10 @@ echo "Starting VEP annotation"
 # Activate VEP environment
 conda activate vep_x86
 
+vep_install \
+-a cf \
+-s homo_sapiens \
+-y GRCh38
 
 # Annotate variants using Ensembl Variant Effect Predictor (VEP)
 
