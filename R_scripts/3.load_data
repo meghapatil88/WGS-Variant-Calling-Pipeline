@@ -1,28 +1,19 @@
-# Convert SNPs annotation
-snps <- read.delim(
-  "/Users/meghapatil/WES-analysis/annotation/SRR099968_snps_annotated.txt",
-  sep = "\t",
-  stringsAsFactors = FALSE,
-  skip = 157
-)
+# Load the CSV file
+variants <- read.delim("annotated_variants.csv", header = TRUE)
 
-write.csv(
-  snps,
-  "/Users/meghapatil/WES-analysis/results/SRR099968_snps_annotated.csv",
-  row.names = FALSE
-)
+# Check structure
+cat("Total rows:", nrow(variants), "\n")
+cat("Total columns:", ncol(variants), "\n")
 
+# View first few rows
+head(variants[, c("Location", "Allele", "Consequence", "IMPACT", "AF", "SYMBOL")])
 
-# Convert Indels annotation
-indels <- read.delim(
-  "/Users/meghapatil/WES-analysis/annotation/SRR099968_indels_annotated.txt",
-  sep = "\t",
-  stringsAsFactors = FALSE,
-  skip = 157
-)
+# Basic stats
+cat("\n=== VARIANT IMPACT SUMMARY ===\n")
+print(table(variants$IMPACT))
 
-write.csv(
-  indels,
-  "/Users/meghapatil/WES-analysis/results/SRR099968_indels_annotated.csv",
-  row.names = FALSE
-)
+cat("\n=== VARIANT CLASS SUMMARY ===\n")
+print(table(variants$VARIANT_CLASS))
+
+cat("\n=== CONSEQUENCE SUMMARY ===\n")
+print(head(sort(table(variants$Consequence), decreasing = TRUE), 10))
